@@ -1,0 +1,115 @@
+﻿
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!--Boostrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/14cfd73b7f.js" crossorigin="anonymous"></script>
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="~/CSS/Home.css">
+    <link rel="stylesheet" href="~/CSS/General.css">
+
+</head>
+
+<!-- Main content -->
+<body class="container-fluid">
+    <div class="container">
+        <!-- Info boxes -->
+        <h2 class="blockquote text-right">Dashboard</h2>
+        <!-- Contador de Inactividad -->
+        <div id="contadorInactividad" class="mt-3">
+            <span id="tiempoRestante">Tiempo de cierre por inactividad: 03:00</span>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <div data-href="/Registro/Equipos" class="info-box-icon bg-aqua" id="dImpresoras"><i class="bi bi-printer"></i></div>
+                    <div class="info-box-content">
+                        <span class="info-box-text">Impresoras</span>
+                        <span class="info-box-number" id="cantImpresoras"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box">
+                    <div data-href="/Registro/UsuariosVPN" class="info-box-icon bg-green" id="dUsuariosVPN"><i class="fa-solid fa-house-user"></i></div>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">UsuariosVPN</span>
+                        <span class="info-box-number" id="cantUsuariosVPN"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 spacer">
+            <!-- Este div actúa como un espacio en blanco para empujar los elementos al fondo -->
+        </div>
+
+        <!-- TABLE: LATEST ORDERS -->
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Recargar tinta</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <div class="table-responsive">
+                    <table class="table no-margin">
+                        <thead>
+                            <tr>
+                                <th>Area</th>
+                                <th>Responsable</th>
+                                <th>Marca</th>
+                                <th>CodigoTinta</th>
+                                <th>BLACK</th>
+                                <th>CYAN</th>
+                                <th>YELLOW</th>
+                                <th>MAGENTA</th>
+                            </tr>
+                        </thead>
+                        <tbody id="grilla">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Modal Cargando -->
+    <div id="modalProcesando" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body d-flex align-items-center">
+                    <img class="ima-pros" src="~/Image/PF_sinfondo.png" />
+                    <span class="ml-4">Procesando...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mostrar alerta -->
+    <div id="alertContainer"></div>
+
+
+    <script>
+    var urlListarMovimientos= '@Url.Action("ListarMovimientos", "Home")';
+    var urlCargarCantidades = '@Url.Action("CargarCantidades", "Home")';
+    </script>
+
+    <script src="~/JS/Home/Home.js"></script>
+    <script src="~/JS/Utils.js"></script>
+    <script src="~/JS/Errores.js"></script>
+</body>

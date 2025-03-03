@@ -1,0 +1,364 @@
+﻿
+body {
+    background-color: rgb(164, 192, 235,0.20);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.contenedor {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.head-general {
+    display: flex;
+    width: 100%;
+    height: 20%;
+    overflow: hidden;
+}
+
+.body-general {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+}
+
+    .body-general > .row {
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        height: 95%;
+        margin-inline: 5%;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        border-top: 5px solid rgba(0, 0, 0, 0.5);
+    }
+
+.title-text {
+    display: flex;
+    flex-direction: column;
+    margin-inline: 5%;
+    padding-top: 30px;
+    width: 80%;
+    height: 100%;
+}
+
+.title {
+    display: flex;
+    width: 100%;
+    height: 70%;
+}
+
+.title-inactivity {
+    display: flex;
+    width: 100%;
+    height: 30%;
+}
+
+.button-group {
+    display: flex;
+    overflow: hidden;
+    align-items: flex-end;
+    justify-items: flex-end;
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor:pointer !important;
+}
+
+.btn-group > .btn:hover {
+    transform: scale(1.2);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.box-header {
+    height: 10%;
+}
+
+    .box-header > .box-text {
+        display: flex;
+        height: 40px;
+        margin-top: 5px;
+        align-items: center;
+        flex-direction: row;
+        border-radius: 5px;
+        overflow: hidden;
+        border: 1px solid #ccc;
+    }
+
+.form-control {
+    flex: 1;
+    border: none;
+    font-size: 16px;
+    border-radius: 0;
+}
+
+
+
+.box-header > .box-text > .btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 15%; /* Ajusta según el espacio disponible */
+    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el tamaño total */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Añade transición para el efecto de hundimiento */
+}
+
+
+    .box-header > .box-text > .btn:active {
+        color: #007bff;
+        box-shadow: inset 12px 12px 12px #c5c5c5, inset -12px -12px 12px #ffffff;
+    }
+
+.box-body {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+table {
+    width: 100%;
+    min-height: 50px;
+}
+
+.box-footer {
+    width: 100%;
+    height: 5%;
+}
+
+
+
+thead {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    z-index: 0;
+}
+
+
+
+.label-danger,
+.label-info,
+.label-warning,
+.label-primary,
+.label-success {
+    color: #fff !important;
+    color: #fff;
+    font-size: 100%;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.label-danger {
+    background-color: #dd4b39 !important;
+    color: #fff;
+    font-size: 100%;
+    font-weight: bold;
+    cursor: default;
+}
+
+.label-warning {
+    background-color: #f39c12 !important;
+    color: #fff;
+    font-size: 100%;
+    font-weight: bold;
+    cursor: default;
+}
+
+.label-info {
+    background-color: #00c0ef !important;
+    color: #fff;
+    font-size: 100%;
+    font-weight: bold;
+    cursor: default;
+}
+
+.label-primary {
+    background-color: #3c8dbc !important;
+    color: #fff;
+    font-size: 100%;
+    font-weight: bold;
+    cursor: default;
+}
+
+.label-success {
+    background-color: #00a65a !important;
+    color: #fff;
+    font-size: 100%;
+    font-weight: bold;
+    cursor: default;
+}
+
+.btn-group-action {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-inline-start: 20px;
+    cursor: default;
+}
+
+.btneditar,
+.btndesactivar,
+.btnactivar,
+.btncopiar,
+.btneliminar,
+.btncesar {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+
+/*Estilos del modal*/
+img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.btn-modal:nth-of-type(1) {
+    display: inline-block;
+    position: relative;
+    width: 30%;
+    height: 40px; /* Ajustado para un tamaño más estándar */
+    cursor: pointer;
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Borde con opacidad blanca */
+    text-transform: uppercase;
+    color: #fff; /* Texto blanco para contraste */
+    overflow: hidden;
+    background: rgba(61, 106, 255, 0.8); /* Fondo del botón con opacidad */
+    box-shadow: 0 0 0 0 transparent;
+    transition: all 0.2s ease-in;
+}
+
+.btn-modal:nth-of-type(2) {
+    display: inline-block;
+    position: relative;
+    width: 30%;
+    height: 40px; /* Ajustado para un tamaño más estándar */
+    cursor: pointer;
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Borde con opacidad blanca */
+    text-transform: uppercase;
+    color: #fff; /* Texto blanco para contraste */
+    overflow: hidden;
+    background: rgba(91, 92, 95, 0.8); /* Fondo del botón con opacidad */
+    box-shadow: 0 0 0 0 transparent;
+    transition: all 0.2s ease-in;
+}
+
+.btn-modal:nth-of-type(1):hover {
+    background: rgba(61, 106, 255, 1); 
+    box-shadow: 0 0 30px 5px rgba(61, 106, 255, 0.5); 
+}
+
+.btn-modal:nth-of-type(2):hover {
+    background: rgba(91, 92, 95, 0.8); 
+    box-shadow: 0 0 30px 5px rgba(37, 38, 41, 0.5);
+}
+
+.btn-modal:hover::before {
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+}
+
+.btn-modal::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top:10px;
+    margin-block-end:10px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: #717171;
+        font-weight: 600;
+        font-size: 12px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 5px 5px;
+        border-radius: 8px;
+        color: black;
+        font-family: inherit;
+        background-color: transparent;
+        border: 1px solid #414141;
+    }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder,
+        .form-group select::placeholder {
+            opacity: 0.5;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            outline: 2px solid #331cff;
+        }
+
+
+.span-error {
+    padding-top: 4px;
+    font-size: 80%;
+    position: absolute;
+    color: red;
+    transform: translateY(250%);
+}
+
+  /*Fin de estilos de modal*/

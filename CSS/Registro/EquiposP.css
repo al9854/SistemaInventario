@@ -1,0 +1,135 @@
+﻿
+body {
+    background-color: rgb(164, 192, 235,0.20);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+hr {
+    width: 100%;
+}
+
+.contenedor {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.head-general {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 20%;
+    overflow: hidden;
+}
+
+.title-text {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    display: flex;
+    margin-left:5%;
+    width: 80%;
+    height: 70%;
+}
+
+.title-inactivity {
+    display: flex;
+    height: 100%;
+    padding-block-start: 15px;
+}
+
+.nav-group {
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    height: 150px;
+}
+
+/* Estilo de la Navegación Tab-link */
+.tab-link {
+    display: flex;
+    position: relative;
+    background: transparent;
+    border-radius: 2px;
+    height: 50px;
+}
+
+    /* Estilo para los enlaces */
+    .tab-link a {
+        display: block;
+        width: 150px; /* Ancho fijo para los enlaces */
+        margin-inline-end: 10px;
+        padding: 15px;
+        text-transform: capitalize;
+        text-decoration: none;
+        position: relative;
+        background: transparent;
+        color: #000;
+        font-weight: bold;
+        transition: color 0.3s, text-shadow 0.5s; /* Ajusta la transición */
+        cursor: pointer;
+    }
+        .tab-link a:nth-of-type(2) {
+            width: 100px
+        }
+        /* Pseudo-elemento para la línea debajo del enlace */
+        .tab-link a::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: #b4b4b4;
+            transition: width 375ms ease-out;
+        }
+
+        /* Mostrar la línea debajo del enlace cuando está enfocado o en hover */
+        .tab-link a:nth-of-type(1):focus::after,
+        .tab-link a:nth-of-type(1):hover::after {
+            width: 80%;
+        }
+
+        .tab-link a:nth-of-type(2):focus::after,
+        .tab-link a:nth-of-type(2):hover::after {
+            width: 90%;
+        }
+
+        .tab-link a:nth-of-type(3):focus::after,
+        .tab-link a:nth-of-type(3):hover::after {
+            width: 100%;
+        }
+
+        /* Efecto de iluminación alrededor del texto */
+        .tab-link a:focus,
+        .tab-link a:hover {
+            outline: none;
+            text-shadow: 0 0 5px rgba(0, 140, 255, 1), 0 0 10px rgba(0, 140, 255, 0.8), 0 0 15px rgba(0, 140, 255, 0.6), 0 0 20px rgba(0, 140, 255, 0.4);
+            color: #000; /* Color del texto */
+        }
+
+
+/* Estilo para el enlace activo */
+.tab-link-item.active {
+    font-weight: bold;
+    background: none !important;
+}
+
+    .tab-link-item.active::after {
+        width: 100%;
+    }
+
+
+   
