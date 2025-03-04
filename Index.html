@@ -1,0 +1,186 @@
+<!doctype html>
+
+<html lang="es-pe">
+
+<head>
+    <!-- Favicon -->
+    <link rel="icon" href="~/Image/PF_sinfondo.png" type="image/png">
+
+    <title>Peru Fashions</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!--Boostrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="PERU FASHIONS" />
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/14cfd73b7f.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="CSS/Login.css">
+
+</head>
+
+<body class="principal">
+    <section class="login">
+        <div class="contenedor">
+            <div class="logo">
+                <div class="logo_titulo">
+                    <span class="text1">PERU</span>
+                    <span class="text2">FASHIONS</span>
+                </div>
+                <div class="logo_central">
+                    <div class="container circle1" style="--animation-order: 0;">
+                        <div class="top-circle"></div>
+                        <div class="bottom-left-circle"></div>
+                        <div class="bottom-right-circle"></div>
+                    </div>
+                    <div class="container circle2" style="--animation-order: 1;">
+                        <div class="top-circle"></div>
+                        <div class="bottom-left-circle"></div>
+                        <div class="bottom-right-circle"></div>
+                    </div>
+                    <div class="container circle3" style="--animation-order: 2;">
+                        <div class="top-circle"></div>
+                        <div class="bottom-left-circle"></div>
+                        <div class="bottom-right-circle"></div>
+                    </div>
+                    <div class="container circle4" style="--animation-order: 3;">
+                        <div class="top-circle"></div>
+                        <div class="bottom-left-circle"></div>
+                        <div class="bottom-right-circle"></div>
+                    </div>
+                    <div class="container circle5" style="--animation-order: 4;">
+                        <div class="top-circle"></div>
+                        <div class="bottom-left-circle"></div>
+                        <div class="bottom-right-circle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="formulario">
+                <div class="radio-inputs" id="radios">
+                    <label class="radio">
+                        <input checked="" name="radio" id="btnInicio" type="radio" />
+                        <span class="name">Ingresar</span>
+                    </label>
+                    <label class="radio">
+                        <input name="radio" id="btnRegistrar" type="radio" />
+                        <span class="name">Registrarse</span>
+                    </label>
+                </div>
+                <div class="text-head">
+                    <span class="text-head1 line-below">Ingreso</span>
+                    <span class="text-head2">o</span>
+                    <span class="text-head3">Registro</span>
+                </div>
+
+                <div class=" formulario-ingreso" id="form1">
+                    <form action="#" class="signin-form">
+                        <div class="form-group" id="userGroup">
+                            <span class="form-text">CODIGO DE USUARIO</span>
+                            <input id="CodigoUsuario" type="text" class="form-control"
+                                   placeholder="Ingrese su código de usuario">
+                        </div>
+                        <div class="form-group" id="userGroup">
+                            <span class="form-text" id="spancontraseña">CONTRASEÑA</span>
+                            <span class="d-none form-text" id="spannuevacontraseña">NUEVA CONTRASEÑA</span>
+                            <input id="ContraseñaUsuario" type="password" class="form-control password-container" placeholder="Ingrese su contraseña">
+                            <input id="NuevaContraseña" type="password" class="d-none form-control password-container" placeholder="Ingrese su nueva contraseña">
+                            <span toggle="#ContraseñaUsuario" id="iconocontraseña" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            <span toggle="#NuevaContraseña" id="icononuevacontraseña" class="d-none fa fa-fw fa-eye field-icon toggle-password"></span>
+                        </div>
+                        <div class="d-none form-group" id="userGroup3">
+                            <span class="form-text">CONFIRMAR CONTRASEÑA</span>
+                            <input id="ConfirmarContraseña" type="password" class="form-control password-container" placeholder="Confirme su contraseña">
+                            <span toggle="#ConfirmarContraseña" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                        </div>
+                        <div class="text-extra"><a class="" id="btnnueva">Generar una nueva contraseña</a></div>
+                        <div class="form-group" id="userGroup">
+                            <button class="form-button" id="btnIngresar">Ingresar</button>
+                            <button class="d-none form-button" id="btnCambiar">Cambiar</button>
+                            <button class="d-none form-button" id="btnRegresar">Regresar</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="d-none formulario-registro" id="form2">
+                    <form action="#" class="signin-form">
+                        <div class="form-group" id="userGroup">
+                            <div class="form-subgroup">
+                                <span class="form-text">NOMBRE USUARIO</span>
+                                <input id="NombreUsuario" type="text" class="form-control" placeholder="Ingrese su nombre">
+                            </div>
+                            <div class="form-subgroup">
+                                <span class="form-text">CODIGO USUARIO</span>
+                                <i class="fa-regular fa-circle-question"></i>
+                                <div class="info-tooltip">Obtener datos automáticamente.</div>
+                                <input id="NuevoCodigoUsuario" type="text" class="form-control" placeholder="Código de usuario">
+                            </div>
+                        </div>
+                        <div class="form-group" id="userGroup">
+                            <div class="form-subgroup">
+                                <span class="form-text">Area</span>
+                                <select class="form-control" id="cmbArea">
+                                    <option value="0">Seleccione...</option>
+                                </select>
+                            </div>
+                            <div class="form-subgroup">
+                                <span class="form-text">Seccion</span>
+                                <select class="form-control" id="cmbSeccion">
+                                    <option value="0">Seleccione...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group" id="userGroup">
+                            <div class="form-subgroup">
+                                <span class="form-text">NUEVA CONTRASEÑA</span>
+                                <input id="ContraseñaNueva" type="password" class="form-control password-container"
+                                       placeholder="Ingrese su contraseña">
+                                <span toggle="#ContraseñaNueva"
+                                      class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+                            <div class="form-subgroup">
+                                <span class="form-text">REPETIR CONTRASEÑA</span>
+                                <input id="RepetirContraseña" type="password" class="form-control password-container"
+                                       placeholder="Repita su contraseña">
+                                <span toggle="#RepetirContraseña"
+                                      class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                            </div>
+                        </div>
+                        <button class="form-button" id="btnEnviar">Enviar</button>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+
+    </section>
+
+
+
+
+
+    <!-- Mostrar alerta -->
+    <div id="alertContainer"></div>
+
+
+    <script>
+        var urlValidarUsuario = '@Url.Action("ValidarUsuario", "Login")';
+        var urlCambiarContraseña = '@Url.Action("CambiarContraseña", "Login")';
+        var urlAgregarUsuario = '@Url.Action("AgregarUsuario", "Login")';
+        var urlDatosUsuario = '@Url.Action("DatosUsuario", "Login")';
+        var urlLlenarComboArea = '@Url.Action("LlenarComboArea", "General")';
+        var urlLlenarComboSeccion = '@Url.Action("LlenarComboSeccion", "General")';
+    </script>
+
+    <script src="~/JS/Login.js"></script>
+    <script src="~/JS/Utils.js"></script>
+
+
+
+
+</body>
+</html>
