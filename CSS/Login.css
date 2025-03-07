@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(135deg, #2d4187, #6a8bce), url('https://www.transparenttextures.com/patterns/scribble-light.png');
+    background: linear-gradient(135deg, #2d4187, #6a8bce);
     background-size: 400% 400%, 300px 300px;
     animation: gradientAnimation 15s ease infinite;
 }
@@ -47,7 +47,7 @@ section {
 .logo_titulo {
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 2em; /* Tamaño grande para destacar */
+    font-size: 2em; /* Tamaï¿½o grande para destacar */
     color: #3D57AE; /* Color principal */
     position: relative;
     overflow: hidden;
@@ -71,198 +71,186 @@ section {
 
 
 /*FIN ANIMACION LOGO*/
-
+/*****ANIMACIONCOHETE********/
 .logo_central {
     display: flex;
     position: relative;
     width: 300px;
     height: 300px;
     align-content: center;
-    justify-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     overflow: hidden;
 }
 
 
-.container {
+.rocket {
+    position: relative;
+    width: 80%;
+    height: 80%;
+    z-index: 100;
+    align-content: center;
+  }
+  
+  
+  .window {
     position: absolute;
-    width: 120px;
-    height: 120px;
-    overflow: hidden;
-    border-end-end-radius: 130px;
-    border-end-start-radius: 130px;
-    border-bottom: 5px solid transparent;
-    opacity: 0; /* Ocultar inicialmente */
-    animation: fadeIn 0.5s forwards; /* Animación */
-}
-
-@keyframes fadeIn {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background: linear-gradient(135deg, #2d4187, #6a8bce);
+    left: calc(50% - 25px);
+    top: 40px;
+    border: 5px solid #b4b2b2;
+  }
+  
+  .fin {
+    position: absolute;
+    z-index: -100;
+    height: 55px;
+    width: 50px;
+    background: linear-gradient(135deg, #2d4187, #6a8bce);
+  }
+  
+  .fin-left {
+    left: -30px;
+    top: calc(100% - 55px);
+    border-top-left-radius: 80%;
+    border-bottom-left-radius: 20%;
+  }
+  
+  .fin-right {
+    right: -30px;
+    top: calc(100% - 55px);
+    border-top-right-radius: 80%;
+    border-bottom-right-radius: 20%;
+  }
+  
+  @keyframes bounce {
     0% {
-        opacity: 0;
+      transform: translate3d(0px, 0px, 0);
     }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-/* Asignamos el tiempo de retraso de la animación a cada círculo */
-.circle1 {
-    animation-delay: 0s;
-}
-
-.circle2 {
-    animation-delay: 0.5s;
-}
-
-.circle3 {
-    animation-delay: 1s;
-}
-
-.circle4 {
-    animation-delay: 1.5s;
-}
-
-.circle5 {
-    animation-delay: 2s;
-}
-
-/* Repetimos el ciclo completo */
-.container {
-    animation-iteration-count: infinite;
-    animation-duration: 5s; /* Duración total del ciclo */
-    animation-fill-mode: forwards;
-    animation-delay: calc(var(--animation-order) * 0.5s); /* Ajuste de retraso */
-}
-
-.top-circle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-}
-
-.bottom-left-circle, .bottom-right-circle {
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    background-color: white;
-    border-radius: 50%;
-    border-end-end-radius: 20px;
-    border-end-start-radius: 20px;
-}
-
-.bottom-left-circle {
-    bottom: -55px;
-    left: -60px;
-    /*transform: translate(-10%, 10%);*/
-}
-
-.bottom-right-circle {
-    bottom: -55px;
-    right: -60px;
-    /*transform: translate(10%, 10%);*/
-}
-
-/* Colores de los círculos */
-.circle1 .top-circle {
-    background-color: rgba(128, 32, 128, 1);
-}
-
-.circle2 .top-circle {
-    background-color: rgba(0, 96, 192, 1);
-}
-
-.circle3 .top-circle {
-    background-color: rgba(96, 192, 64, 1);
-}
-
-.circle4 .top-circle {
-    background-color: rgba(224, 128, 0, 1);
-}
-
-.circle5 .top-circle {
-    background-color: rgba(224, 0, 64, 1);
-}
-
-/*
-    clip-path: polygon(18% 0%, 82% 0%, 100% 38%, 50% 100%, 0% 38%);*/
-
-/* Posiciones en forma de pentágono */
-.circle1 {
-    top: 6%;
-    left: 24%;
-    transform: rotate(-39deg) translate(-25%, 0);
-}
-
-.circle2 {
-    top: 6%;
-    right: 24%;
-    transform: rotate(39deg) translate(25%, 0);
-}
-
-.circle3 {
-    top: 41%;
-    right: 7%;
-    transform: rotate(107deg) translate(0, 0);
-}
-
-.circle4 {
-    top: 100%;
-    left: 50%;
-    transform: rotate(-180deg) translate(50%, 100%);
-}
-
-.circle5 {
-    top: 41%;
-    left: 7%;
-    transform: rotate(-107deg) translate(0, 0);
-}
-
-/* Efecto de iluminación */
-.light-effect {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.5) 70%, rgba(255, 255, 255, 0) 100%);
-    animation: moveLight 5s infinite;
-}
-
-@keyframes moveLight {
-    0% {
-        transform: translate(-100%, 100%) rotate(0deg);
-    }
-
     50% {
-        transform: translate(100%, -100%) rotate(180deg);
+      transform: translate3d(0px, -4px, 0);
     }
-
     100% {
-        transform: translate(-100%, 100%) rotate(360deg);
+      transform: translate3d(0px, 0px, 0);
     }
+  }
+
+  .rocket-body {
+    position: relative;
+    left:80px;
+    width: 80px;
+    animation: bounce 3s infinite;
+    z-index: 10;
+  }
+  
+  .rocket-body .body {
+    background-color: #dadada;
+    height: 180px;
+    border-top-right-radius: 100%;
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-top: 5px solid #f5f5f5;
+  }
+  
+  .rocket-body:before {
+    content: '';
+    position: relative;
+    width: 48px;
+    height: 13px;
+    background-color: #554842;
+    bottom: -13px;
+    border-bottom-right-radius: 60%;
+    border-bottom-left-radius: 60%;
+    z-index: 10;
+  }
+
+  
+  /* Contenedor del humo */
+.humo {
+  top: -5%;
+  border-radius: 30px 30px 0 0;
+  position: relative;
+  width: 80px;
+  left: 80px;
+  height: 20%;
+  overflow: hidden;
+  background: transparent; /* Fondo transparente */
+  z-index: -1;
 }
 
+/* Capas de humo */
+.humo-capas {
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.humo-capa {
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+        circle,
+        rgba(255, 165, 0, 0.8) 10%,   /* Naranja brillante (fuego) */
+        rgba(255, 69, 0, 0.6) 30%,     /* Rojo anaranjado (fuego) */
+        rgba(139, 69, 19, 0.5) 60%,   /* MarrÃ³n (transiciÃ³n a humo) */
+        rgba(0, 0, 0, 0.4) 80%,        /* Negro (humo oscuro) */
+        rgba(0, 0, 0, 0) 100%          /* Transparente (desvanecimiento) */
+    );
+  filter: blur(10px);
+  opacity: 0.8;
+  overflow: hidden;
+  animation: humoAnimacion 3s infinite;
+}
+
+/* AnimaciÃ³n del humo */
+@keyframes humoAnimacion {
+  75% {
+      transform: translateY(0) scale(0.5);
+      opacity: 0.8;
+  }
+  50% {
+      transform: translateY(-50px) scale(1.2);
+      opacity: 0.5;
+  }
+  0% {
+      transform: translateY(-100px) scale(1.5);
+      opacity: 0;
+  }
+}
+
+/* Ajustar las capas de humo para un efecto mÃ¡s realista */
+.humo-capa:nth-child(1) {
+  animation-delay: 0s;
+}
+.humo-capa:nth-child(2) {
+  animation-delay: 1s;
+}
+.humo-capa:nth-child(3) {
+  animation-delay: 2s;
+}
 /*FIN ANIMACION*/
 
 /*TOOLTIP*/
 
  .fa-circle-question {
     position: absolute;
-    right: 55px; /* Ajusta la distancia del borde derecho según sea necesario */
+    right: 55px; /* Ajusta la distancia del borde derecho segï¿½n sea necesario */
     top: 43%;
     transform: translateY(10%);
     font-size: 20px;
-    color: #007bff; /* Color del ícono */
+    color: #007bff; /* Color del ï¿½cono */
     cursor: pointer;
 }
 
  .info-tooltip {
     display: none;
     position: absolute;
-    right: 40px; /* Ajusta la posición del tooltip */
+    right: 40px; /* Ajusta la posiciï¿½n del tooltip */
     top: 50%;
     transform: translateY(-50%);
     background-color: #000;
@@ -301,9 +289,9 @@ section {
     width: 50%;
     height: 100%;
     min-width: 450px;
-    /* Tamaño mínimo de ancho */
+    /* Tamaï¿½o mï¿½nimo de ancho */
     min-height: 600px;
-    /* Tamaño mínimo de alto */
+    /* Tamaï¿½o mï¿½nimo de alto */
     background: rgba(12, 85, 70, 0.75);
     flex-direction: column;
     display: flex;
@@ -449,7 +437,7 @@ span {
     margin-block-end: 10px;
 }
 
-    /* Estilo para la línea debajo del input */
+    /* Estilo para la lï¿½nea debajo del input */
     .form-control::after {
         content: '';
         left: 0;
@@ -525,21 +513,21 @@ span {
     position: relative;
     margin-top: 20px;
     width: 30%;
-    height: 40px; /* Ajustado para un tamaño más estándar */
+    height: 40px; /* Ajustado para un tamaï¿½o mï¿½s estï¿½ndar */
     cursor: pointer;
     border-radius: 7px;
     border: 1px solid rgba(255, 255, 255, 0.5); /* Borde con opacidad blanca */
     text-transform: uppercase;
     color: #fff; /* Texto blanco para contraste */
     overflow: hidden;
-    background: rgba(61, 106, 255, 0.8); /* Fondo del botón con opacidad */
+    background: rgba(61, 106, 255, 0.8); /* Fondo del botï¿½n con opacidad */
     box-shadow: 0 0 0 0 transparent;
     transition: all 0.2s ease-in;
 }
 
     .form-button:hover {
-        background: rgba(61, 106, 255, 1); /* Fondo sólido en hover */
-        box-shadow: 0 0 30px 5px rgba(61, 106, 255, 0.5); /* Sombra con el color del botón */
+        background: rgba(61, 106, 255, 1); /* Fondo sï¿½lido en hover */
+        box-shadow: 0 0 30px 5px rgba(61, 106, 255, 0.5); /* Sombra con el color del botï¿½n */
     }
 
         .form-button:hover::before {
