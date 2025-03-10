@@ -1,41 +1,75 @@
-﻿
+﻿import {validar} from './JS'
+
+const AgregarUsuario = async () => {
+    const NombreUsuario = document.querySelector('#NombreUsuario').value;
+    const NuevoCodigoUsuario = document.querySelector('#NuevoCodigoUsuario').value;
+    const Area = document.querySelector('#cmbArea').value;
+    const Seccion = document.querySelector('#cmbSeccion').value;
+    const ContraseñaNueva = document.querySelector('#ContraseñaNueva').value;
+
+    try {
+        const response = await fetch(urlAgregarUsuario, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                NombreUsuario,
+                NuevoCodigoUsuario,
+                Area,
+                Seccion,
+                ContraseñaNueva
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+            document.querySelector('#btnInicio').click();
+            Utils.mostrarAlerta(data.message, 'success');
+        } else {
+            Utils.mostrarAlerta('Error al validar los datos: ' + data.message, 'danger');
+        }
+    } catch (error) {
+        Utils.mostrarAlerta('Error de sistema.', 'danger');
+    }
+};
+
+
 var Eventos = {
 
-    AgregarUsuario: function()
-    {
-    var NombreUsuario = $('#NombreUsuario').val();
-    var NuevoCodigoUsuario = $('#NuevoCodigoUsuario').val();
-    var Area = $('#cmbArea').val();
-    var Seccion = $('#cmbSeccion').val();
-    var ContraseñaNueva = $('#ContraseñaNueva').val();
+    AgregarUsuario: async function () {
+        var NombreUsuario = document.querySelector('#NombreUsuario').value;
+        var NuevoCodigoUsuario = document.querySelector('#NuevoCodigoUsuario').value;
+        var Area = document.querySelector('#cmbArea').value;
+        var Seccion = document.querySelector('#cmbSeccion').value;
+        var ContraseñaNueva = document.querySelector('#ContraseñaNueva').value;
 
-        $.ajax(
-            {
-                url: urlAgregarUsuario,
-                type: 'POST',
-                data: {
-                    NombreUsuario: NombreUsuario,
-                    NuevoCodigoUsuario: NuevoCodigoUsuario,
-                    Area: Area,
-                    Seccion: Seccion,
-                    ContraseñaNueva: ContraseñaNueva
+        if (!NombreUsuario || !NuevoCodigoUsuario || !Area || !Seccion || !ContraseñaNueva) {
+            Utils.mostrarAlerta('Todos los campos son obligatorios', 'danger');
+            return;
+        }
 
-                },
-                success: function (response) {
-                    if (response.success) {
-                        $('#btnInicio').click();
-                        Utils.mostrarAlerta(response.message, 'success');
-                    } else {
-                        Utils.mostrarAlerta('Error al validar los datos: ' + response.message, 'danger');
-                    }
-                },
-                error: function (jqXHR) {
-                    var errorMessage = (jqXHR.responseJSON && jqXHR.responseJSON.message) ? jqXHR.responseJSON.message : 'Error de sistema.';
-                    Utils.mostrarAlerta(errorMessage, 'danger');
-                }
+        try {
+            const response = await fetch(urlAgregarUsuario, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    NombreUsuario, NuevoCodigoUsuario, Area, Seccion, ContraseñaNueva
+                })
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                document.querySelector('#btnInicio').click();
+                Utils.mostrarAlerta(data.message, 'success');
+            } else {
+                Utils.mostrarAlerta('Error al validar los datos: ' + data.message, 'danger');
             }
-        );
+        } catch (error) {
+            Utils.mostrarAlerta('Error de sistema.', 'danger');
+        }
     },
+
 
 
     ValidarUsuario: function () {

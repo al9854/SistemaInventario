@@ -41,9 +41,8 @@ section {
     justify-items: center;
     align-items: center;
 }
+
 /*ANIMACION TITULO*/
-
-
 .logo_titulo {
     text-align: center;
     font-family: 'Poppins', sans-serif;
@@ -243,7 +242,7 @@ section {
     top: 43%;
     transform: translateY(10%);
     font-size: 20px;
-    color: #007bff; /* Color del �cono */
+    color: #007bff; /* Color del icono */
     cursor: pointer;
 }
 
