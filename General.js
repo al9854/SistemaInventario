@@ -1,3 +1,3 @@
-export function Validacion(dato){
-
+export function Validar(dato){
+   return (!dato.trim()) ? true : false;
 }

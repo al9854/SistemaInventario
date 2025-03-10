@@ -1,4 +1,4 @@
-﻿import {validar} from './JS'
+﻿import {Validar} from './General.js'
 
 const AgregarUsuario = async () => {
     const NombreUsuario = document.querySelector('#NombreUsuario').value;
@@ -6,6 +6,9 @@ const AgregarUsuario = async () => {
     const Area = document.querySelector('#cmbArea').value;
     const Seccion = document.querySelector('#cmbSeccion').value;
     const ContraseñaNueva = document.querySelector('#ContraseñaNueva').value;
+
+    /*Validar campos */
+    (Validar(NombreUsuario) || Validar(NuevoCodigoUsuario) || Validar(ContraseñaNueva)) ? true : false
 
     try {
         const response = await fetch(urlAgregarUsuario, {
@@ -196,106 +199,125 @@ function cerrarSesion() {
     });
 }
 
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-
-    $(".toggle-password").on('click', function () {
-        let input = $($(this).attr("toggle"));
-        if (input.attr("type") === "password") {
-            input.attr("type", "text");
-            $(this).removeClass("fa-eye").addClass("fa-eye-slash");
-        } else {
-            input.attr("type", "password");
-            $(this).removeClass("fa-eye-slash").addClass("fa-eye");
+    /*Controlar el icono para visualizar contraseñas*/
+    document.querySelectorAll('.toogle-password').forEach(toggle => {
+        toggle.addEventListener('click',function(){
+            let input = document.querySelector(this.getAttribute("toggle"));
+            if (input) {
+                if (input.type === "password") {
+                    input.type = "text";
+                    this.classList.remove("fa-eye");
+                    this.classList.add("fa-eye-slash");
+                } else {
+                    input.type = "password";
+                    this.classList.remove("fa-eye-slash");
+                    this.classList.add("fa-eye");
+                }
+    
         }
+        })
     });
 
-    $('#btnnueva').click(function () {
-        $('#spancontraseña').addClass('d-none');
-        $('#ContraseñaUsuario').addClass('d-none');
-        $('#iconocontraseña').addClass('d-none');
-        $('#btnCmabiar').addClass('d-none');
-        $('#btnCambiar').addClass('d-none'); 
-        $('#userGroup3').removeClass('d-none'); 
-        $('#spannuevacontraseña').removeClass('d-none');
-        $('#NuevaContraseña').removeClass('d-none');
-        $('#icononuevacontraseña').removeClass('d-none');
-        $('#btnIngresar').addClass('d-none');
-        $('#btnCambiar').removeClass('d-none');
-        $('#btnRegresar').removeClass('d-none');
-        $('#btnnueva').addClass('d-none');
-        $('#radios input[type="radio"]').prop('disabled', true);
-    });
-    $('#btnRegresar').click(function () {
-        $('#spancontraseña').removeClass('d-none');
-        $('#ContraseñaUsuario').removeClass('d-none');
-        $('#iconocontraseña').removeClass('d-none');
-        $('#spannuevacontraseña').addClass('d-none');
-        $('#NuevaContraseña').addClass('d-none');
-        $('#icononuevacontraseña').addClass('d-none');
-        $('#userGroup3').addClass('d-none'); 
-        $('#btnIngresar').removeClass('d-none');
-        $('#btnCambiar').addClass('d-none');
-        $('#btnRegresar').addClass('d-none');
-        $('#btnnueva').removeClass('d-none');
-        $('#radios input[type="radio"]').prop('disabled', false);
-    });
+    document.querySelector('#btnnueva').addEventListener('click',function (){
 
-    $('#btnRegistrar').click(function () {
-        $('#form1').addClass('d-none');
-        $('#form2').removeClass('d-none');
-        Funciones.LimpiarCampos();
-        $('#logocentral').addClass('rotate');
-        $(".text-head1").removeClass("line-below");
-        $(".text-head3").addClass("line-below");
+        document.querySelectorAll('.formulario').forEach(form =>{
+            (form.classList.contains('d-none'))? form.classList.remove('d-none') :form.classList.add('d-none')
+        });
 
-        Utils.llenarCombo(urlLlenarComboArea, 'cmbArea', 'Id', 'Value');
-        Utils.llenarCombo(urlLlenarComboSeccion, 'cmbSeccion', 'Id', 'Value');
+    })
 
-    });
-    $('#btnInicio').click(function () {
-        $('#form1').removeClass('d-none');
-        $('#form2').addClass('d-none');
-        Funciones.LimpiarCampos();
-        $('#logocentral').removeClass('rotate');
-        $(".text-head1").addClass("line-below");
-        $(".text-head3").removeClass("line-below");
-    });
 
-    $('#btnIngresar').on('click', function (event) {
-        event.preventDefault();
-        Eventos.ValidarUsuario()
-    });
 
-    $('#btnCambiar').on('click', function (event) {
-        if ($('#spannuevacontraseña').val() == $('#NuevaContraseña').val()) {
-            event.preventDefault();
-            Eventos.CambiarContraseña()
-        } else {
-            Utils.mostrarAlerta('Las contraseñas no coinciden, intente nuevamente', 'danger');
-        }
-    });
+});
 
-    $('#btnEnviar').on('click', function (event) {
+// $(document).ready(function () {
+//     $('#btnnueva').click(function () {
+//         $('#spancontraseña').addClass('d-none');
+//         $('#ContraseñaUsuario').addClass('d-none');
+//         $('#iconocontraseña').addClass('d-none');
+//         $('#btnCmabiar').addClass('d-none');
+//         $('#btnCambiar').addClass('d-none'); 
+//         $('#userGroup3').removeClass('d-none'); 
+//         $('#spannuevacontraseña').removeClass('d-none');
+//         $('#NuevaContraseña').removeClass('d-none');
+//         $('#icononuevacontraseña').removeClass('d-none');
+//         $('#btnIngresar').addClass('d-none');
+//         $('#btnCambiar').removeClass('d-none');
+//         $('#btnRegresar').removeClass('d-none');
+//         $('#btnnueva').addClass('d-none');
+//         $('#radios input[type="radio"]').prop('disabled', true);
+//     });
 
-        if ($('#ContraseñaNueva').val() == $('#RepetirContraseña').val()) {
-            event.preventDefault();
-            Eventos.AgregarUsuario();
-        } else {
-            Utils.mostrarAlerta('Las contraseñas no coinciden, intente nuevamente', 'danger');
-        }
+//     $('#btnRegresar').click(function () {
+//         $('#spancontraseña').removeClass('d-none');
+//         $('#ContraseñaUsuario').removeClass('d-none');
+//         $('#iconocontraseña').removeClass('d-none');
+//         $('#spannuevacontraseña').addClass('d-none');
+//         $('#NuevaContraseña').addClass('d-none');
+//         $('#icononuevacontraseña').addClass('d-none');
+//         $('#userGroup3').addClass('d-none'); 
+//         $('#btnIngresar').removeClass('d-none');
+//         $('#btnCambiar').addClass('d-none');
+//         $('#btnRegresar').addClass('d-none');
+//         $('#btnnueva').removeClass('d-none');
+//         $('#radios input[type="radio"]').prop('disabled', false);
+//     });
 
-    });
+//     $('#btnRegistrar').click(function () {
+//         $('#form1').addClass('d-none');
+//         $('#form2').removeClass('d-none');
+//         Funciones.LimpiarCampos();
+//         $(".text-head1").removeClass("line-below");
+//         $(".text-head3").addClass("line-below");
 
-    $('#NuevoCodigoUsuario').on('input', function (e) {
-        var Codigo = $('#NuevoCodigoUsuario').val().trim().toLowerCase();
+//         Utils.llenarCombo(urlLlenarComboArea, 'cmbArea', 'Id', 'Value');
+//         Utils.llenarCombo(urlLlenarComboSeccion, 'cmbSeccion', 'Id', 'Value');
 
-        if (Codigo.length >= 6) {
-            Eventos.DatosUsuario(Codigo);
-        }
+//     });
+//     $('#btnInicio').click(function () {
+//         $('#form1').removeClass('d-none');
+//         $('#form2').addClass('d-none');
+//         Funciones.LimpiarCampos();
+//         $(".text-head1").addClass("line-below");
+//         $(".text-head3").removeClass("line-below");
+//     });
 
-    });
-    // Inicializa los tooltips
-    $('[data-toggle="tooltip"]').tooltip();
+//     $('#btnIngresar').on('click', function (event) {
+//         event.preventDefault();
+//         Eventos.ValidarUsuario()
+//     });
 
-}); 
+//     $('#btnCambiar').on('click', function (event) {
+//         if ($('#spannuevacontraseña').val() == $('#NuevaContraseña').val()) {
+//             event.preventDefault();
+//             Eventos.CambiarContraseña()
+//         } else {
+//             Utils.mostrarAlerta('Las contraseñas no coinciden, intente nuevamente', 'danger');
+//         }
+//     });
+
+//     $('#btnEnviar').on('click', function (event) {
+
+//         if ($('#ContraseñaNueva').val() == $('#RepetirContraseña').val()) {
+//             event.preventDefault();
+//             Eventos.AgregarUsuario();
+//         } else {
+//             Utils.mostrarAlerta('Las contraseñas no coinciden, intente nuevamente', 'danger');
+//         }
+
+//     });
+
+//     $('#NuevoCodigoUsuario').on('input', function (e) {
+//         var Codigo = $('#NuevoCodigoUsuario').val().trim().toLowerCase();
+
+//         if (Codigo.length >= 6) {
+//             Eventos.DatosUsuario(Codigo);
+//         }
+
+//     });
+//     // Inicializa los tooltips
+//     $('[data-toggle="tooltip"]').tooltip();
+
+// }); 
