@@ -178,26 +178,26 @@ var Funciones = {
 //EXTRA CONTROLAR CERRAR SESION
 
 
-$(window).on('pageshow', function (event) {
-    if (event.originalEvent.persisted) {
-        // La página se carga desde el cache del navegador
-        cerrarSesion();
-    }
-});
+// $(window).on('pageshow', function (event) {
+//     if (event.originalEvent.persisted) {
+//         // La página se carga desde el cache del navegador
+//         cerrarSesion();
+//     }
+// });
 
-function cerrarSesion() {
-    $.ajax({
-        url: '/Login/CerrarSesion',
-        type: 'GET',
-        success: function () {
-            console.log('Sesión Cerrada');
-        },
-        error: function (jqXHR) {
-            var errorMessage = (jqXHR.responseJSON && jqXHR.responseJSON.message) ? jqXHR.responseJSON.message : 'Error de sistema.';
-            Utils.mostrarAlerta(errorMessage, 'danger');
-        }
-    });
-}
+// function cerrarSesion() {
+//     $.ajax({
+//         url: '/Login/CerrarSesion',
+//         type: 'GET',
+//         success: function () {
+//             console.log('Sesión Cerrada');
+//         },
+//         error: function (jqXHR) {
+//             var errorMessage = (jqXHR.responseJSON && jqXHR.responseJSON.message) ? jqXHR.responseJSON.message : 'Error de sistema.';
+//             Utils.mostrarAlerta(errorMessage, 'danger');
+//         }
+//     });
+// }
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -223,11 +223,19 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector('#btnnueva').addEventListener('click',function (){
 
         document.querySelectorAll('.formulario').forEach(form =>{
-            (form.classList.contains('d-none'))? form.classList.remove('d-none') :form.classList.add('d-none')
+            (form.classList.contains('d-none')) ? form.classList.remove('d-none') : form.classList.add('d-none')
         });
 
     })
 
+    document.getElementById('radio').addEventListener('click', () => {
+        let texth = document.querySelectorAll('.texth');
+        texth.forEach(text => text.classList.remove('line-below'));
+        texth[document.getElementById('btnInicio').checked ? 0 : 1].classList.add('line-below');
+    });
+    
+    
+    
 
 
 });
