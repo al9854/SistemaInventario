@@ -4,6 +4,9 @@
 
 <head>
     <link rel="stylesheet" href="Formulario.css">
+     <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/14cfd73b7f.js" crossorigin="anonymous"></script>
+
 
 </head>
 
@@ -31,43 +34,39 @@
                     </div>
                 </div>
                 <div class="body-form">
-                    <div class="d-none formulario ingreso" id="form1">
-                        <form action="#" class="signin-form">
-                            <div class="form-group" id="userGroup">
-                                <span class="form-text">CODIGO DE USUARIO</span>
-                                <input id="CodigoUsuario" type="text" class="form-control"
+                    <div class=" formulario" id="formulario">
+                        <form class="signin-form">
+                            <div class="form-group">
+                                <label class="form-text">CODIGO DE USUARIO</label>
+                                <input id="cusuario" type="text" class="form-control"
                                     placeholder="Ingrese su código de usuario">
                             </div>
-                            <div class="form-group" id="userGroup">
-                                <span class="form-text" id="spancontraseña">CONTRASEÑA</span>
-                                <span class="d-none form-text" id="spannuevacontraseña">NUEVA CONTRASEÑA</span>
-                                <input id="ContraseñaUsuario" type="password" class="form-control password-container"
+                            <div class="form-group">
+                                <span class="form-text" id="password">CONTRASEÑA</span>
+                                <div class="input-container">
+                                <input id="cpassword" type="password" class="form-control"
                                     placeholder="Ingrese su contraseña">
-                                <input id="NuevaContraseña" type="password"
-                                    class="d-none form-control password-container"
-                                    placeholder="Ingrese su nueva contraseña">
                                 <span toggle="#ContraseñaUsuario" id="iconocontraseña"
                                     class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                <span toggle="#NuevaContraseña" id="icononuevacontraseña"
-                                    class="d-none fa fa-fw fa-eye field-icon toggle-password"></span>
+                                </div>
                             </div>
-                            <div class="d-none form-group" id="userGroup3">
+                            <div class="d-none form-group">
                                 <span class="form-text">CONFIRMAR CONTRASEÑA</span>
-                                <input id="ConfirmarContraseña" type="password" class="form-control password-container"
-                                    placeholder="Confirme su contraseña">
-                                <span toggle="#ConfirmarContraseña"
-                                    class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                <div class="input-container">
+                                    <input id="confirmpassword" type="password" class="form-control" placeholder="Confirme su contraseña">
+                                    <span toggle="#ConfirmarContraseña" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                </div> 
                             </div>
                             <div class="text-extra"><a class="" id="btnnueva">Generar una nueva contraseña</a></div>
-                            <div class="form-group" id="userGroup">
+                            <div class="group-button" id="userGroup">
                                 <button class="form-button" id="btnIngresar">Ingresar</button>
                                 <button class="d-none form-button" id="btnCambiar">Cambiar</button>
                                 <button class="d-none form-button" id="btnRegresar">Regresar</button>
                             </div>
                         </form>
                     </div>
-                    <div class=" formulario registro" id="form2">
-                        <form action="#" class="signin-form">
+                    <div class=" d-none formulario registro" id="form2">
+                        <form class="signin-form">
                             <div class="form-group" id="userGroup">
                                 <div class="form-subgroup">
                                     <span class="form-text">NOMBRE USUARIO</span>
