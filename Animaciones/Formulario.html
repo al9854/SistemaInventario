@@ -4,7 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="Formulario.css">
-     <!-- Font Awesome for icons -->
+    <!-- Font Awesome for icons -->
     <script src="https://kit.fontawesome.com/14cfd73b7f.js" crossorigin="anonymous"></script>
 
 
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="body-form">
-                    <div class=" formulario" id="formulario">
+                    <div class="d-none  formulario" id="formulario">
                         <form class="signin-form">
                             <div class="form-group">
                                 <label class="form-text">CODIGO DE USUARIO</label>
@@ -44,18 +44,20 @@
                             <div class="form-group">
                                 <span class="form-text" id="password">CONTRASEÑA</span>
                                 <div class="input-container">
-                                <input id="cpassword" type="password" class="form-control"
-                                    placeholder="Ingrese su contraseña">
-                                <span toggle="#ContraseñaUsuario" id="iconocontraseña"
-                                    class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                    <input id="cpassword" type="password" class="form-control"
+                                        placeholder="Ingrese su contraseña">
+                                    <span toggle="#ContraseñaUsuario" id="iconocontraseña"
+                                        class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                 </div>
                             </div>
                             <div class="d-none form-group">
                                 <span class="form-text">CONFIRMAR CONTRASEÑA</span>
                                 <div class="input-container">
-                                    <input id="confirmpassword" type="password" class="form-control" placeholder="Confirme su contraseña">
-                                    <span toggle="#ConfirmarContraseña" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                </div> 
+                                    <input id="confirmpassword" type="password" class="form-control"
+                                        placeholder="Confirme su contraseña">
+                                    <span toggle="#ConfirmarContraseña"
+                                        class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                </div>
                             </div>
                             <div class="text-extra"><a class="" id="btnnueva">Generar una nueva contraseña</a></div>
                             <div class="group-button" id="userGroup">
@@ -65,61 +67,48 @@
                             </div>
                         </form>
                     </div>
-                    <div class=" d-none formulario registro" id="form2">
-                        <form class="signin-form">
-                            <div class="form-group" id="userGroup">
-                                <div class="form-subgroup">
-                                    <span class="form-text">NOMBRE USUARIO</span>
-                                    <input id="NombreUsuario" type="text" class="form-control"
-                                        placeholder="Ingrese su nombre">
-                                </div>
-                                <div class="form-subgroup">
-                                    <span class="form-text">CODIGO USUARIO</span>
-                                    <i class="fa-regular fa-circle-question"></i>
-                                    <div class="info-tooltip">Obtener datos automáticamente.</div>
-                                    <input id="NuevoCodigoUsuario" type="text" class="form-control"
-                                        placeholder="Código de usuario">
-                                </div>
-                            </div>
-                            <div class="form-group" id="userGroup">
-                                <div class="form-subgroup">
-                                    <span class="form-text">Area</span>
-                                    <select class="form-control" id="cmbArea">
-                                        <option value="0">Seleccione...</option>
-                                    </select>
-                                </div>
-                                <div class="form-subgroup">
-                                    <span class="form-text">Seccion</span>
-                                    <select class="form-control" id="cmbSeccion">
-                                        <option value="0">Seleccione...</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group" id="userGroup">
-                                <div class="form-subgroup">
-                                    <span class="form-text">NUEVA CONTRASEÑA</span>
-                                    <input id="ContraseñaNueva" type="password" class="form-control password-container"
-                                        placeholder="Ingrese su contraseña">
-                                    <span toggle="#ContraseñaNueva"
-                                        class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                </div>
-                                <div class="form-subgroup">
-                                    <span class="form-text">REPETIR CONTRASEÑA</span>
-                                    <input id="RepetirContraseña" type="password"
-                                        class="form-control password-container" placeholder="Repita su contraseña">
-                                    <span toggle="#RepetirContraseña"
-                                        class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                </div>
-                            </div>
-                            <button class="form-button" id="btnEnviar">Enviar</button>
-                        </form>
-                    </div>
+                    <form class="register-form">
+                        <div class="form-group" id="userGroup">
+                            <span class="form-text">NOMBRE USUARIO</span>
+                            <input id="NombreUsuario" type="text" class="form-control" placeholder="Ingrese su nombre">
+                        </div>
+                        <div class="form-group">
+                            <span class="form-text">CODIGO USUARIO</span>
+                            <i class="fa-regular fa-circle-question"></i>
+                            <div class="info-tooltip">Obtener datos automáticamente.</div>
+                            <input id="NuevoCodigoUsuario" type="text" class="form-control"
+                                placeholder="Código de usuario">
+                        </div>
+                        <div class="form-group" id="userGroup">
+                            <span class="form-text">Area</span>
+                            <select class="form-control" id="cmbArea">
+                                <option value="0">Seleccione...</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="userGroup">
+                            <span class="form-text">Seccion</span>
+                            <select class="form-control" id="cmbSeccion">
+                                <option value="0">Seleccione...</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="userGroup">
+                            <span class="form-text">NUEVA CONTRASEÑA</span>
+                            <input id="ContraseñaNueva" type="password" class="form-control password-container"
+                                placeholder="Ingrese su contraseña">
+                            <span toggle="#ContraseñaNueva" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                        </div>
+                        <div class="form-group" id="userGroup">
+                            <span class="form-text">REPETIR CONTRASEÑA</span>
+                            <input id="RepetirContraseña" type="password" class="form-control password-container"
+                                placeholder="Repita su contraseña">
+                            <span toggle="#RepetirContraseña" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                        </div>
+                        <button class="form-button" id="btnEnviar">Enviar</button>
+                    </form>
                 </div>
             </div>
         </div>
-
     </section>
-
     <script src="../Login.js" type="module"></script>
 
 </body>
