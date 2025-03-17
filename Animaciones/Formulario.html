@@ -34,10 +34,10 @@
                     </div>
                 </div>
                 <div class="body-form">
-                    <div class="d-none  formulario" id="formulario">
-                        <form class="signin-form">
+                    <div class="formulario" id="formulario">
+                        <form class="d-none signin-form">
                             <div class="form-group">
-                                <label class="form-text">CODIGO DE USUARIO</label>
+                                <label class="form-text">Usuario</label>
                                 <input id="cusuario" type="text" class="form-control"
                                     placeholder="Ingrese su código de usuario">
                             </div>
@@ -69,11 +69,11 @@
                     </div>
                     <form class="register-form">
                         <div class="form-group" id="userGroup">
-                            <span class="form-text">NOMBRE USUARIO</span>
+                            <span class="form-text">Nombre Usuario</span>
                             <input id="NombreUsuario" type="text" class="form-control" placeholder="Ingrese su nombre">
                         </div>
                         <div class="form-group">
-                            <span class="form-text">CODIGO USUARIO</span>
+                            <span class="form-text">Usuario</span>
                             <i class="fa-regular fa-circle-question"></i>
                             <div class="info-tooltip">Obtener datos automáticamente.</div>
                             <input id="NuevoCodigoUsuario" type="text" class="form-control"
@@ -83,6 +83,22 @@
                             <span class="form-text">Area</span>
                             <select class="form-control" id="cmbArea">
                                 <option value="0">Seleccione...</option>
+                                <option value="1">Administración</option>
+                                <option value="2">Finanzas</option>
+                                <option value="3">Recursos Humanos</option>
+                                <option value="4">Contabilidad</option>
+                                <option value="5">Ventas</option>
+                                <option value="6">Marketing</option>
+                                <option value="7">Producción</option>
+                                <option value="8">Logística</option>
+                                <option value="9">Sistemas</option>
+                                <option value="10">Atención al Cliente</option>
+                                <option value="11">Compras</option>
+                                <option value="12">Legal</option>
+                                <option value="13">Calidad</option>
+                                <option value="14">Investigación y Desarrollo (I+D)</option>
+                                <option value="15">Mantenimiento</option>
+                                <option value="16">Seguridad</option>
                             </select>
                         </div>
                         <div class="form-group" id="userGroup">
@@ -92,18 +108,20 @@
                             </select>
                         </div>
                         <div class="form-group" id="userGroup">
-                            <span class="form-text">NUEVA CONTRASEÑA</span>
+                            <span class="form-text">Nueva Contraseña</span>
                             <input id="ContraseñaNueva" type="password" class="form-control password-container"
                                 placeholder="Ingrese su contraseña">
                             <span toggle="#ContraseñaNueva" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                         </div>
                         <div class="form-group" id="userGroup">
-                            <span class="form-text">REPETIR CONTRASEÑA</span>
+                            <span class="form-text">Repetir Contraseña</span>
                             <input id="RepetirContraseña" type="password" class="form-control password-container"
                                 placeholder="Repita su contraseña">
                             <span toggle="#RepetirContraseña" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                         </div>
-                        <button class="form-button" id="btnEnviar">Enviar</button>
+                        <div class="group-button" id="userGroup">
+                            <button class="form-button" id="btnEnviar">Enviar</button>
+                        </div>
                     </form>
                 </div>
             </div>
