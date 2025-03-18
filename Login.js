@@ -1,5 +1,22 @@
 ﻿import {Validar} from './General.js'
 
+
+/*Botones*/
+
+var Nueva = document.getElementById('btnNueva')
+var Ingresar = document.getElementById('btnIngresar')
+var Cambiar = document.getElementById('btnCambiar')
+var Regresar = document.getElementById('btnRegresar')
+var Inicio = document.getElementById('btnInicio')
+var Registrar = document.getElementById('btnRegistrar')
+
+/*Campos*/
+
+var Usuario = document.getElementById('cusuario')
+var Contraseña = document.getElementById('password')
+var ConfirmarContraseña = document.getElementById('confirmpassword')
+
+
 const AgregarUsuario = async () => {
     const NombreUsuario = document.querySelector('#NombreUsuario').value;
     const NuevoCodigoUsuario = document.querySelector('#NuevoCodigoUsuario').value;
@@ -201,7 +218,7 @@ var Funciones = {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    /*Controlar el icono para visualizar contraseñas*/
+    //Controlar el icono para visualizar contraseñas
     document.querySelectorAll('.toogle-password').forEach(toggle => {
         toggle.addEventListener('click',function(){
             let input = document.querySelector(this.getAttribute("toggle"));
@@ -220,20 +237,67 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     });
 
-    document.querySelector('#btnnueva').addEventListener('click',function (){
-
-        document.querySelectorAll('.formulario').forEach(form =>{
-            (form.classList.contains('d-none')) ? form.classList.remove('d-none') : form.classList.add('d-none')
-        });
-
-    })
-
+    //Cambio de formulario
     document.getElementById('radio').addEventListener('click', () => {
         let texth = document.querySelectorAll('.texth');
         texth.forEach(text => text.classList.remove('line-below'));
-        texth[document.getElementById('btnInicio').checked ? 0 : 1].classList.add('line-below');
+        texth[Inicio.checked ? 0 : 1].classList.add('line-below');
+
+        let signin = document.querySelector('.signin-form');
+        let register = document.querySelector('.register-form');
+
+        if (Inicio.checked) {
+            signin.classList.remove('d-none');
+            register.classList.add('d-none');
+        } else {
+            signin.classList.add('d-none');
+            register.classList.remove('d-none');
+        }
+
     });
-    
+
+    /***************Lógica para cambiar de contraseña**************************/
+    var textcontraseña= document.getElementById('tpassword')
+    var confirmar= document.getElementById('gcontraseña')
+
+    Nueva.addEventListener('click', function (e) { 
+        e.preventDefault();
+        confirmar.classList.remove('d-none')
+        textcontraseña.textContent = 'Nueva Contraseña'
+        Contraseña.placeholder = 'Ingrese su nueva contraseña'
+        Cambiar.classList.remove('d-none')
+        Regresar.classList.remove('d-none')
+        Ingresar.classList.add('d-none')
+        Nueva.classList.add('d-none')
+    });
+
+    Regresar.addEventListener('click', function (e) { 
+        e.preventDefault();
+        confirmar.classList.add('d-none')
+        textcontraseña.textContent = 'Contraseña'
+        Contraseña.placeholder = 'Ingrese su contraseña'
+        Cambiar.classList.add('d-none')
+        Regresar.classList.add('d-none')
+        Ingresar.classList.remove('d-none')
+        Nueva.classList.remove('d-none')
+    });
+
+
+    Cambiar.addEventListener('click',function() {
+
+    })
+
+
+    /**/
+
+
+    /********************Inicio de sesion**********/
+
+    Ingresar.addEventListener('click',function(e){
+        e.preventDefault();
+       (Validar(Usuario.value) && Validar(Contraseña.value)) ? console.log('Usuario incorrecto') : console.log('Usuario correcto') 
+    })
+    /**/
     
     
 
