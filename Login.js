@@ -179,15 +179,9 @@ var Eventos = {
 
 var Funciones = {
     LimpiarCampos: function () {
-        $('#CodigoUsuario').val('');
-        $('#ContraseñaUsuario').val('');
-        $('#NuevaContraseña').val('');
-        $('#ConfirmarContraseña').val('');
-        $('#NombreUsuario').val('');
-        $('#NuevoCodigoUsuario').val('');
-        $('#NuevoCodigoTrabajador').val('');
-        $('#ContraseñaNueva').val('');
-        $('#RepetirContraseña').val('');
+     Usuario.value = ''; 
+     Contraseña.value = '';  
+     ConfirmarContraseña.value = '';  
     },
 
 };
@@ -280,11 +274,16 @@ document.addEventListener("DOMContentLoaded", function () {
         Regresar.classList.add('d-none')
         Ingresar.classList.remove('d-none')
         Nueva.classList.remove('d-none')
+        Funciones.LimpiarCampos;
     });
 
 
-    Cambiar.addEventListener('click',function() {
-
+    Cambiar.addEventListener('click',function(e) {
+        e.preventDefault(); 
+        (Validar(Usuario.value) || Validar(Contraseña.value) || Validar(ConfirmarContraseña.value)) ?  alert('Usuario incorrecto') 
+        : (Contraseña.value !== ConfirmarContraseña.value)? alert('Las contraseñas deben ser iguales')  
+        : alert('Usuario correcto')  
+        Funciones.LimpiarCampos;
     })
 
 
@@ -295,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     Ingresar.addEventListener('click',function(e){
         e.preventDefault();
-       (Validar(Usuario.value) && Validar(Contraseña.value)) ? console.log('Usuario incorrecto') : console.log('Usuario correcto') 
+       (Validar(Usuario.value) || Validar(Contraseña.value)) ? alert('Usuario incorrecto') : alert('Usuario correcto') 
     })
     /**/
     
