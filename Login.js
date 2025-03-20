@@ -1,20 +1,35 @@
-﻿import {Validar} from './General.js'
+﻿import { Validar, Mensaje } from './General.js'
 
 
-/*Botones*/
-
+/*Elementos*/
+//Botones
 var Nueva = document.getElementById('btnNueva')
 var Ingresar = document.getElementById('btnIngresar')
 var Cambiar = document.getElementById('btnCambiar')
 var Regresar = document.getElementById('btnRegresar')
 var Inicio = document.getElementById('btnInicio')
 var Registrar = document.getElementById('btnRegistrar')
+var Enviar = document.getElementById('btnEnviar')
+
+
+//Ventana de Cambiar contraseña 
+var textcontraseña = document.getElementById('tpassword')
+var confirmar = document.getElementById('gcontraseña')
 
 /*Campos*/
 
 var Usuario = document.getElementById('cusuario')
 var Contraseña = document.getElementById('password')
 var ConfirmarContraseña = document.getElementById('confirmpassword')
+
+// Registro
+
+var RNombreUsuario = document.getElementById('RNombreUsuario')
+var RUsuario = document.getElementById('RUsuario')
+var RArea = document.getElementById('cmbRArea')
+var RSeccion = document.getElementById('cmbRSeccion')
+var RContraseña = document.getElementById('RContraseña')
+var RCContraseña = document.getElementById('RCContraseña')
 
 
 const AgregarUsuario = async () => {
@@ -163,7 +178,7 @@ var Eventos = {
                     $('#btnRegresar').addClass('d-none');
                     $('#btnnueva').removeClass('d-none');
                 } else {
-                    Utils.mostrarAlerta( response.message, 'danger');
+                    Utils.mostrarAlerta(response.message, 'danger');
                 }
             },
             error: function (jqXHR) {
@@ -178,11 +193,26 @@ var Eventos = {
 
 
 var Funciones = {
-    LimpiarCampos: function () {
-     Usuario.value = ''; 
-     Contraseña.value = '';  
-     ConfirmarContraseña.value = '';  
+    LimpiarInicioSesion: function () {
+        Contraseña.value = '';
+        ConfirmarContraseña.value = '';
+        RArea = '';
+        RCContraseña = '';
+        RContraseña = '';
+        RNombreUsuario = '';
+        RSeccion = '';
+        RUsuario = '';
     },
+
+    RegresarIniciosesion: function () {
+        confirmar.classList.add('d-none')
+        textcontraseña.textContent = 'Contraseña'
+        Contraseña.placeholder = 'Ingrese su contraseña'
+        Cambiar.classList.add('d-none')
+        Regresar.classList.add('d-none')
+        Ingresar.classList.remove('d-none')
+        Nueva.classList.remove('d-none')
+    }
 
 };
 
@@ -214,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //Controlar el icono para visualizar contraseñas
     document.querySelectorAll('.toogle-password').forEach(toggle => {
-        toggle.addEventListener('click',function(){
+        toggle.addEventListener('click', function () {
             let input = document.querySelector(this.getAttribute("toggle"));
             if (input) {
                 if (input.type === "password") {
@@ -226,8 +256,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     this.classList.remove("fa-eye-slash");
                     this.classList.add("fa-eye");
                 }
-    
-        }
+
+            }
         })
     });
 
@@ -251,10 +281,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     /***************Lógica para cambiar de contraseña**************************/
-    var textcontraseña= document.getElementById('tpassword')
-    var confirmar= document.getElementById('gcontraseña')
 
-    Nueva.addEventListener('click', function (e) { 
+    Nueva.addEventListener('click', function (e) {
         e.preventDefault();
         confirmar.classList.remove('d-none')
         textcontraseña.textContent = 'Nueva Contraseña'
@@ -265,26 +293,45 @@ document.addEventListener("DOMContentLoaded", function () {
         Nueva.classList.add('d-none')
     });
 
-    Regresar.addEventListener('click', function (e) { 
+    Regresar.addEventListener('click', function (e) {
         e.preventDefault();
-        confirmar.classList.add('d-none')
-        textcontraseña.textContent = 'Contraseña'
-        Contraseña.placeholder = 'Ingrese su contraseña'
-        Cambiar.classList.add('d-none')
-        Regresar.classList.add('d-none')
-        Ingresar.classList.remove('d-none')
-        Nueva.classList.remove('d-none')
-        Funciones.LimpiarCampos;
+        Funciones.LimpiarInicioSesion();
+        Funciones.RegresarIniciosesion();
     });
 
 
-    Cambiar.addEventListener('click',function(e) {
-        e.preventDefault(); 
-        (Validar(Usuario.value) || Validar(Contraseña.value) || Validar(ConfirmarContraseña.value)) ?  alert('Usuario incorrecto') 
-        : (Contraseña.value !== ConfirmarContraseña.value)? alert('Las contraseñas deben ser iguales')  
-        : alert('Usuario correcto')  
-        Funciones.LimpiarCampos;
+    Cambiar.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        if (Validar(Usuario.value) || Validar(Contraseña.value) || Validar(ConfirmarContraseña.value)) {
+            Mensaje('Datos Incorrectos', 'danger');
+        } else if (Contraseña.value !== ConfirmarContraseña.value) {
+            Mensaje('Las contraseñas son diferentes', 'danger');
+        } else {
+            Mensaje('Cambio de contraseña exitoso', 'success');
+            Funciones.LimpiarInicioSesion();
+            Funciones.RegresarIniciosesion();
+        }
+    });
+
+    Enviar.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        if(Validar(RSeccion.value) || Validar(RArea.value) 
+            ||RArea.value=='0' || RSeccion.value=='0'       
+            || Validar(RContraseña.value) || Validar(RCContraseña.value) 
+            || Validar(RNombreUsuario.value) || Validar(RUsuario.value))
+            {
+                Mensaje('Datos Incorrectos', 'danger');
+            } else if (RContraseña.value !== RCContraseña.value) {
+                Mensaje('Las contraseñas son diferentes', 'danger');
+            }else {
+                Mensaje('Registro exitoso', 'success');
+                Funciones.LimpiarInicioSesion();
+                Funciones.RegresarIniciosesion();
+            }
     })
+
 
 
     /**/
@@ -292,13 +339,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /********************Inicio de sesion**********/
 
-    Ingresar.addEventListener('click',function(e){
+    Ingresar.addEventListener('click', function (e) {
         e.preventDefault();
-       (Validar(Usuario.value) || Validar(Contraseña.value)) ? alert('Usuario incorrecto') : alert('Usuario correcto') 
+        (Validar(Usuario.value) || Validar(Contraseña.value)) ? Mensaje('Datos Incorrectos', 'danger') : Mensaje(`Bienvenido ${Usuario.value}`, 'success')
     })
     /**/
-    
-    
+
+
 
 
 });
@@ -309,8 +356,8 @@ document.addEventListener("DOMContentLoaded", function () {
 //         $('#ContraseñaUsuario').addClass('d-none');
 //         $('#iconocontraseña').addClass('d-none');
 //         $('#btnCmabiar').addClass('d-none');
-//         $('#btnCambiar').addClass('d-none'); 
-//         $('#userGroup3').removeClass('d-none'); 
+//         $('#btnCambiar').addClass('d-none');
+//         $('#userGroup3').removeClass('d-none');
 //         $('#spannuevacontraseña').removeClass('d-none');
 //         $('#NuevaContraseña').removeClass('d-none');
 //         $('#icononuevacontraseña').removeClass('d-none');
@@ -328,7 +375,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //         $('#spannuevacontraseña').addClass('d-none');
 //         $('#NuevaContraseña').addClass('d-none');
 //         $('#icononuevacontraseña').addClass('d-none');
-//         $('#userGroup3').addClass('d-none'); 
+//         $('#userGroup3').addClass('d-none');
 //         $('#btnIngresar').removeClass('d-none');
 //         $('#btnCambiar').addClass('d-none');
 //         $('#btnRegresar').addClass('d-none');
