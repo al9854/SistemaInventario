@@ -1,0 +1,158 @@
+<!doctype html>
+
+<html lang="es-pe">
+
+<head>
+    <!-- Favicon -->
+    <!-- <link rel="icon" href="~/Image/PF_sinfondo.png" type="image/png"> -->
+
+    <title>Mi Empresa</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Boostrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mi Empresa" />
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/14cfd73b7f.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="login.css">
+
+</head>
+
+<body class="principal">
+    <section class="login">
+
+        <div class="contenedor">
+
+            <div class="form">
+                <div class="head-form">
+                    <div class="radio-inputs" id="radio">
+                        <label class="radio">
+                            <input checked="" name="radio" id="btnInicio" type="radio" />
+                            <span class="name">Ingresar</span>
+                        </label>
+                        <label class="radio">
+                            <input name="radio" id="btnRegistrar" type="radio" />
+                            <span class="name">Registrarse</span>
+                        </label>
+                    </div>
+                    <div class="text-head">
+                        <span class="texth line-below">Ingreso</span>
+                        <span class="textc">o</span>
+                        <span class="texth">Registro</span>
+                    </div>
+                </div>
+                <div class="body-form">
+                    <div class="formulario" id="formulario">
+                        <form class=" signin-form">
+                            <div class="form-group">
+                                <label class="form-text">Usuario</label>
+                                <input id="cusuario" type="text" class="form-control"
+                                    placeholder="Ingrese su código de usuario">
+                            </div>
+                            <div class="form-group">
+                                <span class="form-text" id="tpassword">Contraseña</span>
+                                <div class="input-container">
+                                    <input id="password" type="password" class="form-control"
+                                        placeholder="Ingrese su contraseña">
+                                    <span toggle="#password" class="fa fa-fw fa-eye field-icon toogle-password"></span>
+                                </div>
+                            </div>
+                            <div class="d-none form-group" id="gcontraseña">
+                                <span class="form-text">Confirmar Contraseña</span>
+                                <div class="input-container">
+                                    <input id="confirmpassword" type="password" class="form-control"
+                                        placeholder="Confirme su contraseña">
+                                    <span toggle="#confirmpassword"
+                                        class="fa fa-fw fa-eye field-icon toogle-password"></span>
+                                </div>
+                            </div>
+                            <div class="text-extra"><a class="" id="btnNueva">Generar una nueva contraseña</a></div>
+                            <div class="group-button" id="userGroup">
+                                <button class="form-button" id="btnIngresar">Ingresar</button>
+                                <button class="d-none form-button" id="btnCambiar">Cambiar</button>
+                                <button class="d-none form-button" id="btnRegresar">Regresar</button>
+                            </div>
+                        </form>
+
+                        <form class="d-none register-form">
+                            <div class="form-group" id="userGroup">
+                                <span class="form-text">Nombre Usuario</span>
+                                <input id="RNombreUsuario" type="text" class="form-control"
+                                    placeholder="Ingrese su nombre">
+                            </div>
+                            <div class="form-group">
+                                <span class="form-text">Usuario</span>
+                                <i class="fa-regular fa-circle-question"></i>
+                                <div class="info-tooltip">Obtener datos automáticamente.</div>
+                                <input id="RUsuario" type="text" class="form-control" placeholder="Código de usuario">
+                            </div>
+                            <div class="form-group" id="userGroup">
+                                <span class="form-text">Area</span>
+                                <select class="form-control" id="cmbRArea">
+                                    <option value="0">Seleccione...</option>
+                                    <option value="1">Administración</option>
+                                    <option value="2">Finanzas</option>
+                                    <option value="3">Recursos Humanos</option>
+                                    <option value="4">Contabilidad</option>
+                                    <option value="5">Ventas</option>
+                                    <option value="6">Marketing</option>
+                                    <option value="7">Producción</option>
+                                    <option value="8">Logística</option>
+                                    <option value="9">Sistemas</option>
+                                    <option value="10">Atención al Cliente</option>
+                                    <option value="11">Compras</option>
+                                    <option value="12">Legal</option>
+                                    <option value="13">Calidad</option>
+                                    <option value="14">Investigación y Desarrollo (I+D)</option>
+                                    <option value="15">Mantenimiento</option>
+                                    <option value="16">Seguridad</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="userGroup">
+                                <span class="form-text">Seccion</span>
+                                <select class="form-control" id="cmbRSeccion">
+                                    <option value="0">Seleccione...</option>
+                                </select>
+                            </div>
+                            <div class="form-group" id="userGroup">
+                                <span class="form-text">Nueva Contraseña</span>
+                                <input id="RContraseña" type="password" class="form-control password-container"
+                                    placeholder="Ingrese su contraseña">
+                                <span toggle="#RContraseña" class="fa fa-fw fa-eye field-icon toogle-password"></span>
+                            </div>
+                            <div class="form-group" id="userGroup">
+                                <span class="form-text">Repetir Contraseña</span>
+                                <input id="RCContraseña" type="password" class="form-control password-container"
+                                    placeholder="Repita su contraseña">
+                                <span toggle="#RCContraseña" class="fa fa-fw fa-eye field-icon toogle-password"></span>
+                            </div>
+                            <div class="group-button" id="userGroup">
+                                <button class="form-button" id="btnEnviar">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--   <script>
+        var urlValidarUsuario = '@Url.Action("ValidarUsuario", "Login")';
+        var urlCambiarContraseña = '@Url.Action("CambiarContraseña", "Login")';
+        var urlAgregarUsuario = '@Url.Action("AgregarUsuario", "Login")';
+        var urlDatosUsuario = '@Url.Action("DatosUsuario", "Login")';
+        var urlLlenarComboArea = '@Url.Action("LlenarComboArea", "General")';
+        var urlLlenarComboSeccion = '@Url.Action("LlenarComboSeccion", "General")';
+    </script> -->
+
+    <script src="login.js" type="module"></script>
+
+</body>
+
+</html>

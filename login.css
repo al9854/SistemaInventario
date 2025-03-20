@@ -1,0 +1,472 @@
+/* Definimos las variables globales */
+:root {
+    --container-width: 50%;
+    --container-height: 70%;
+    --margen-izquierda: 50px;
+
+}
+
+
+body {
+    background: linear-gradient(135deg, #2d4187, #6a8bce);
+    background-size: 400% 400%, 300px 300px;
+    resize: none;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+section {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: var(--container-width);
+    height: var(--container-height);
+    min-width: 450px !important;
+    min-height: 600px !important;
+    display: flex;
+    border-radius: 30px !important;
+    flex-direction: row;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px;
+    flex-shrink: 0;
+}
+
+.form {
+    font-family: 'Arial', sans-serif;
+    width: 50%;
+    height: 100%;
+    background: rgba(12, 85, 70);
+    flex-direction: column;
+    display: flex;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    align-items: center;
+    position: relative;
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.head-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 20%;
+    background: transparent;
+
+}
+
+.radio-inputs {
+    position: relative;
+    width: 35%;
+    height: 40px;
+    margin: 10px 30px 0 auto;
+    display: flex;
+    border-radius: 30px;
+    color: white;
+    background-color: transparent;
+    box-sizing: border-box;
+    cursor: pointer !important;
+    padding: 0.25rem;
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.radio-inputs .radio {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.radio-inputs .radio input {
+    display: none;
+}
+
+.radio-inputs .radio .name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer !important;
+    border-radius: 30px;
+    font-size: 70%;
+    border: none;
+    padding: 0.5rem 0;
+    color: rgb(255, 255, 255);
+    transition: all 0.15s ease-in-out;
+}
+
+.radio-inputs .radio input:checked+.name {
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    cursor: pointer !important;
+}
+
+.text-head {
+    display: flex;
+    color: silver;
+    width: 100%;
+    height: calc(100% - 40px);
+    padding: 50px 0 0 var(--margen-izquierda);
+    gap: 10px;
+}
+
+.line-below {
+    position: relative;
+}
+
+.line-below::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: silver;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+}
+
+label,
+span {
+    cursor: pointer !important;
+}
+
+span.texth,
+span.textc {
+    font-size: 150%;
+}
+
+/*Estilos del formulario*/
+.body-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+    height: 80%;
+    box-sizing: border-box;
+    /*asegura que no se expanda el div */
+    background: transparent;
+
+}
+
+.formulario {
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+}
+
+/*Formulario Ingreso*/
+.signin-form {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    gap: 5%;
+    flex-direction: column;
+}
+
+.signin-form>.form-group {
+    padding-left: 70px;
+    display: flex;
+    margin-top: 5%;
+    flex-direction: column;
+    width: 100%;
+    height: 20%;
+    box-sizing: border-box;
+}
+
+.form-text {
+    font-size: 0.65rem;
+    color: silver;
+    background: rgba(12, 85, 70);
+    font-weight: 700;
+    position: relative;
+    top: 0.5rem;
+    margin: 0 0 0 7px;
+    padding: 0 3px;
+    width: fit-content;
+    z-index: 1;
+}
+
+
+.input-container {
+    position: relative;
+    width: 100%;
+    flex-direction: row;
+}
+
+.form-control {
+    position: relative;
+    display: flex;
+    width: 80%;
+    padding: 11px 20px;
+    font-size: 0.75rem;
+    border: 2px silver solid;
+    border-radius: 5px;
+    background: transparent;
+    color: silver;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+.field-icon {
+    position: absolute;
+    top: 35%;
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    color: #ccc;
+    transform: translateY(0);
+    cursor: pointer !important;
+}
+
+.text-extra {
+    position: relative;
+    left: 70px;
+    font-size: 10px;
+    width: 100%;
+    color: silver;
+    cursor: pointer !important;
+}
+
+/*Formulario Registro*/
+
+.register-form {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1%;
+    flex-direction: row;
+}
+
+.register-form>.form-group {
+    position: relative;
+    padding-left: 20px;
+    width: 40%;
+    height: 20%;
+}
+
+.register-form>.form-group>.form-control {
+    width: 100%;
+}
+
+.register-form>.form-group>.field-icon {
+    left: 85%;
+    top: 51.5%;
+}
+
+
+/*Estilos del boton*/
+.group-button {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 40px;
+    gap: 20px;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.form-button {
+    display: inline-block;
+    position: relative;
+    margin-top: 20px;
+    width: 30%;
+    height: 40px;
+    /* Ajustado para un tama�o m�s est�ndar */
+    cursor: pointer;
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Borde con opacidad blanca */
+    text-transform: uppercase;
+    color: #fff;
+    /* Texto blanco para contraste */
+    overflow: hidden;
+    background: rgba(61, 106, 255, 0.8);
+    /* Fondo del bot�n con opacidad */
+    box-shadow: 0 0 0 0 transparent;
+    transition: all 0.2s ease-in;
+}
+
+.form-button:hover {
+    background: rgba(61, 106, 255, 1);
+    box-shadow: 0 0 30px 5px rgba(61, 106, 255, 0.5);
+}
+
+.form-button:hover::before {
+    -webkit-animation: sh02 0.5s 0s linear;
+    -moz-animation: sh02 0.5s 0s linear;
+    animation: sh02 0.5s 0s linear;
+}
+
+.form-button::before {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 86%;
+    position: absolute;
+    top: 7%;
+    left: 0%;
+    opacity: 0;
+    background: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+    -webkit-transform: skewX(-20deg);
+    -moz-transform: skewX(-20deg);
+    -ms-transform: skewX(-20deg);
+    -o-transform: skewX(-20deg);
+    transform: skewX(-20deg);
+}
+
+.form-button:active {
+    box-shadow: 0 0 0 0 transparent;
+    -webkit-transition: box-shadow 0.2s ease-in;
+    -moz-transition: box-shadow 0.2s ease-in;
+    transition: box-shadow 0.2s ease-in;
+}
+
+@keyframes sh02 {
+    from {
+        opacity: 0;
+        left: 0%;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        left: 100%;
+    }
+}
+
+
+
+/*TOOLTIP*/
+
+.fa-circle-question {
+    position: absolute;
+    left:85%;
+    top: 50%;
+    font-size: 20px;
+    color: #007bff;
+    z-index: 10;
+    cursor: pointer !important;
+}
+
+.info-tooltip {
+    display: none;
+    position: absolute;
+    left: 35%;
+    top: -10%;
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    white-space: nowrap;
+    width: max-content;
+}
+
+.form-group .fa-circle-question:hover+.info-tooltip {
+    display: block;
+}
+
+/*FIN TOOLTIP*/
+
+
+/***************************Dimensiones para pantallas*****************************/
+
+
+
+@media (min-width: 500px) and (max-width: 900px) {
+    :root {
+        --container-width: 80%;
+        --container-height: 90%;
+    }
+
+    .form {
+        width: 100%;
+        height: 100%;
+    }
+
+    .radio-inputs .radio .name {
+        font-size: 80%;
+    }
+
+    .register-form {
+        width: 100%;
+        height: 60%;
+    }
+
+    .register-form>.form-group {
+        width: 85%;
+        height: 20%;
+    }
+
+    .register-form>.form-group>.form-control {
+        width: 100%;
+    }
+
+    .register-form>.form-group>.field-icon {
+        left: 85%;
+        top: 55%;
+    }
+    .fa-circle-question {
+        top: 50%;
+    }
+
+}
+
+@media (min-width: 900px) and (max-width: 1700px) {
+    :root {
+        --container-width: 70%;
+        --container-height: 80%;
+
+    }
+
+    .radio-inputs .radio .name {
+        font-size: 70%;
+    }
+
+    .register-form {
+        width: 100%;
+        height: 60%;
+    }
+
+    .register-form>.form-group {
+        width: 100%;
+        height: 20%;
+    }
+
+    .register-form>.form-group>.form-control {
+        width: 100%;
+    }
+    .register-form>.form-group>.field-icon {
+        left: 85%;
+        top: 55%;
+    }
+    
+    .fa-circle-question {
+        top: 50%;
+    }
+}
+
+
+/*Ocultar*/
+.d-none {
+    display: none !important;
+}
