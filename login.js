@@ -1,4 +1,4 @@
-﻿import { Validar, Mensaje } from './General.js'
+﻿import { Validar, Mensaje } from './general.js'
 
 
 /*Elementos*/

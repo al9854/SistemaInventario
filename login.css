@@ -8,10 +8,15 @@
 
 
 body {
+    margin:0;
+    width: 100vw; 
+    height: 100vh;
     background: linear-gradient(135deg, #2d4187, #6a8bce);
     background-size: 400% 400%, 300px 300px;
     resize: none;
     animation: gradientAnimation 15s ease infinite;
+    display: flex;
+    
 }
 
 section {
@@ -39,42 +44,50 @@ section {
 
 /*Estilos de Logo*/
 .logo {
-    position:relative;
+    position: relative;
     width: 50%;
     height: 100%;
     background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
     display: flex;
-    padding-top:100px;
+    padding-top: 100px;
     flex-direction: column;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     justify-items: center;
     align-items: center;
+    box-sizing: border-box;
 }
 
 /*ANIMACION TITULO*/
 .logo_titulo {
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 2em; /* Tama�o grande para destacar */
-    color: #3D57AE; /* Color principal */
+    font-size: 2em;
+    /* Tama�o grande para destacar */
+    color: #3D57AE;
+    /* Color principal */
     position: relative;
     overflow: hidden;
 }
 
 
 /* Animaciones para cada parte */
-.text1, .text2 {
-    display: inline-block; /* Para aplicar animaciones individuales */
-    animation: bounceIn 1s forwards; /* Efecto de rebote */
+.text1,
+.text2 {
+    display: inline-block;
+    /* Para aplicar animaciones individuales */
+    animation: bounceIn 1s forwards;
+    /* Efecto de rebote */
 }
 
 .text1 {
-    animation-delay: 0.5s; /* Retardo para la primera parte */
+    animation-delay: 0.5s;
+    /* Retardo para la primera parte */
 }
 
 .text2 {
-    animation-delay: 1s; /* Retardo para la segunda parte */
+    animation-delay: 1s;
+    /* Retardo para la segunda parte */
 }
 
 
@@ -99,10 +112,10 @@ section {
     height: 80%;
     z-index: 100;
     align-content: center;
-  }
-  
-  
-  .window {
+}
+
+
+.window {
     position: absolute;
     width: 40px;
     height: 40px;
@@ -111,51 +124,53 @@ section {
     left: calc(50% - 25px);
     top: 40px;
     border: 5px solid #b4b2b2;
-  }
-  
-  .fin {
+}
+
+.fin {
     position: absolute;
     z-index: -100;
     height: 55px;
     width: 50px;
     background: linear-gradient(135deg, #2d4187, #6a8bce);
-  }
-  
-  .fin-left {
+}
+
+.fin-left {
     left: -30px;
     top: calc(100% - 55px);
     border-top-left-radius: 80%;
     border-bottom-left-radius: 20%;
-  }
-  
-  .fin-right {
+}
+
+.fin-right {
     right: -30px;
     top: calc(100% - 55px);
     border-top-right-radius: 80%;
     border-bottom-right-radius: 20%;
-  }
-  
-  @keyframes bounce {
-    0% {
-      transform: translate3d(0px, 0px, 0);
-    }
-    50% {
-      transform: translate3d(0px, -4px, 0);
-    }
-    100% {
-      transform: translate3d(0px, 0px, 0);
-    }
-  }
+}
 
-  .rocket-body {
+@keyframes bounce {
+    0% {
+        transform: translate3d(0px, 0px, 0);
+    }
+
+    50% {
+        transform: translate3d(0px, -4px, 0);
+    }
+
+    100% {
+        transform: translate3d(0px, 0px, 0);
+    }
+}
+
+.rocket-body {
     position: relative;
-    left:80px;
+    left: 80px;
     width: 80px;
     animation: bounce 3s infinite;
     z-index: 10;
-  }
-  
-  .rocket-body .body {
+}
+
+.rocket-body .body {
     background-color: #dadada;
     height: 180px;
     border-top-right-radius: 100%;
@@ -163,9 +178,9 @@ section {
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
     border-top: 5px solid #f5f5f5;
-  }
-  
-  .rocket-body:before {
+}
+
+.rocket-body:before {
     content: '';
     position: relative;
     width: 48px;
@@ -175,73 +190,83 @@ section {
     border-bottom-right-radius: 60%;
     border-bottom-left-radius: 60%;
     z-index: 10;
-  }
+}
 
-  
-  /* Contenedor del humo */
+
+/* Contenedor del humo */
 .humo {
-  top: -5%;
-  border-radius: 30px 30px 0 0;
-  position: relative;
-  width: 80px;
-  left: 80px;
-  height: 20%;
-  overflow: hidden;
-  background: transparent; /* Fondo transparente */
-  z-index: -1;
+    top: -5%;
+    border-radius: 30px 30px 0 0;
+    position: relative;
+    width: 80px;
+    left: 80px;
+    height: 20%;
+    overflow: hidden;
+    background: transparent;
+    /* Fondo transparente */
+    z-index: -1;
 }
 
 /* Capas de humo */
 .humo-capas {
-  bottom: 0;
-  width: 100%;
-  height: 100%;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .humo-capa {
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-        circle,
-        rgba(255, 165, 0, 0.8) 10%,   /* Naranja brillante (fuego) */
-        rgba(255, 69, 0, 0.6) 30%,     /* Rojo anaranjado (fuego) */
-        rgba(139, 69, 19, 0.5) 60%,   /* Marrón (transición a humo) */
-        rgba(0, 0, 0, 0.4) 80%,        /* Negro (humo oscuro) */
-        rgba(0, 0, 0, 0) 100%          /* Transparente (desvanecimiento) */
-    );
-  filter: blur(10px);
-  opacity: 0.8;
-  overflow: hidden;
-  animation: humoAnimacion 3s infinite;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle,
+            rgba(255, 165, 0, 0.8) 10%,
+            /* Naranja brillante (fuego) */
+            rgba(255, 69, 0, 0.6) 30%,
+            /* Rojo anaranjado (fuego) */
+            rgba(139, 69, 19, 0.5) 60%,
+            /* Marrón (transición a humo) */
+            rgba(0, 0, 0, 0.4) 80%,
+            /* Negro (humo oscuro) */
+            rgba(0, 0, 0, 0) 100%
+            /* Transparente (desvanecimiento) */
+        );
+    filter: blur(10px);
+    opacity: 0.8;
+    overflow: hidden;
+    animation: humoAnimacion 3s infinite;
 }
 
 /* Animación del humo */
 @keyframes humoAnimacion {
-  75% {
-      transform: translateY(0) scale(0.5);
-      opacity: 0.8;
-  }
-  50% {
-      transform: translateY(-50px) scale(1.2);
-      opacity: 0.5;
-  }
-  0% {
-      transform: translateY(-100px) scale(1.5);
-      opacity: 0;
-  }
+    75% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translateY(-50px) scale(1.2);
+        opacity: 0.5;
+    }
+
+    0% {
+        transform: translateY(-100px) scale(1.5);
+        opacity: 0;
+    }
 }
 
 /* Ajustar las capas de humo para un efecto más realista */
 .humo-capa:nth-child(1) {
-  animation-delay: 0s;
+    animation-delay: 0s;
 }
+
 .humo-capa:nth-child(2) {
-  animation-delay: 1s;
+    animation-delay: 1s;
 }
+
 .humo-capa:nth-child(3) {
-  animation-delay: 2s;
+    animation-delay: 2s;
 }
+
 /*FIN ANIMACION*/
 .form {
     font-family: 'Arial', sans-serif;
@@ -565,7 +590,7 @@ span.textc {
 
 .fa-circle-question {
     position: absolute;
-    left:85%;
+    left: 85%;
     top: 50%;
     font-size: 20px;
     color: #007bff;
@@ -598,15 +623,21 @@ span.textc {
 
 
 
-@media (min-width: 500px) and (max-width: 900px) {
+@media (min-width: 0px) and (max-width: 900px) {
     :root {
-        --container-width: 80%;
-        --container-height: 90%;
+        --container-width: 50%;
+        --container-height: 50%;
     }
 
     .form {
         width: 100%;
         height: 100%;
+        border-radius: 30px;
+    }
+    
+
+    .logo {
+        display: none;
     }
 
     .radio-inputs .radio .name {
@@ -631,6 +662,7 @@ span.textc {
         left: 85%;
         top: 55%;
     }
+
     .fa-circle-question {
         top: 50%;
     }
@@ -661,11 +693,12 @@ span.textc {
     .register-form>.form-group>.form-control {
         width: 100%;
     }
+
     .register-form>.form-group>.field-icon {
         left: 85%;
         top: 55%;
     }
-    
+
     .fa-circle-question {
         top: 50%;
     }
