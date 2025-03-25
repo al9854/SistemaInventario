@@ -212,6 +212,16 @@ var Funciones = {
         Regresar.classList.add('d-none')
         Ingresar.classList.remove('d-none')
         Nueva.classList.remove('d-none')
+    },
+
+    ActualizarPlaceholder: function () {
+        if (window.matchMedia("(max-width: 425px)").matches) {
+            Usuario.placeholder = "Ingrese usuario";
+            Contraseña.placeholder = "Ingrese contraseña";
+        } else {
+            inputUsuario.placeholder = "Ingrese su código de usuario";
+            inputPassword.placeholder = "Ingrese su contraseña";
+        }
     }
 
 };
@@ -280,6 +290,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
+    //Cambio de texto por redimencion
+    window.addEventListener("resize", Funciones.ActualizarPlaceholder());
+
+
+
     /***************Lógica para cambiar de contraseña**************************/
 
     Nueva.addEventListener('click', function (e) {
@@ -317,19 +332,18 @@ document.addEventListener("DOMContentLoaded", function () {
     Enviar.addEventListener('click', function (e) {
         e.preventDefault();
 
-        if(Validar(RSeccion.value) || Validar(RArea.value) 
-            ||RArea.value=='0' || RSeccion.value=='0'       
-            || Validar(RContraseña.value) || Validar(RCContraseña.value) 
-            || Validar(RNombreUsuario.value) || Validar(RUsuario.value))
-            {
-                Mensaje('Datos Incorrectos', 'danger');
-            } else if (RContraseña.value !== RCContraseña.value) {
-                Mensaje('Las contraseñas son diferentes', 'danger');
-            }else {
-                Mensaje('Registro exitoso', 'success');
-                Funciones.LimpiarInicioSesion();
-                Funciones.RegresarIniciosesion();
-            }
+        if (Validar(RSeccion.value) || Validar(RArea.value)
+            || RArea.value == '0' || RSeccion.value == '0'
+            || Validar(RContraseña.value) || Validar(RCContraseña.value)
+            || Validar(RNombreUsuario.value) || Validar(RUsuario.value)) {
+            Mensaje('Datos Incorrectos', 'danger');
+        } else if (RContraseña.value !== RCContraseña.value) {
+            Mensaje('Las contraseñas son diferentes', 'danger');
+        } else {
+            Mensaje('Registro exitoso', 'success');
+            Funciones.LimpiarInicioSesion();
+            Funciones.RegresarIniciosesion();
+        }
     })
 
 
