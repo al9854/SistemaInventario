@@ -402,6 +402,7 @@ span.textc {
 }
 
 .signin-form>.form-group {
+    position: relative;
     padding-left: 70px;
     display: flex;
     margin-top: 5%;
@@ -632,10 +633,21 @@ span.textc {
     .text-head {
         gap: 6px;
     }
+
+    .text-extra {
+        left: 30px;
+    }
+    
     .form {
         width: 100%;
         height: 100%;
         border-radius: 30px;
+    }
+    .form-button {
+        margin-top: 20px;
+        width: 30%;
+        height: 30px;
+        font-size: 50%;
     }
 
     span.texth, span.textc {
@@ -661,7 +673,7 @@ span.textc {
     }
 
     .signin-form>.form-group {
-        width: 85%;
+        width: 95%;
         height: 20%;
         margin-top: 0;
         padding: 0px 0px 0px 20px;
@@ -672,7 +684,7 @@ span.textc {
     }
 
     .signin-form>.form-group>.field-icon {
-        left: 70%;
+        left:88%;
         top: 38%;
     }
 
@@ -692,22 +704,20 @@ span.textc {
     }
 
     .register-form>.form-group>.field-icon {
-        left: 85%;
+        left: 88%;
         top: 60%;
     }
 
     .fa-circle-question {
         top: 50%;
+        left: 88%;
     }
 
 }
 
 
-@media (min-width: 426px) and (max-width: 900px) {
-    :root {
-        --container-width: 10%;
-        --container-height: 50%;
-    }
+@media (min-width: px) and (max-width: 900px) {
+   
 
 
     .form {
@@ -750,7 +760,7 @@ span.textc {
 
 }
 
-@media (min-width: 900px) and (max-width: 1700px) {
+@media (min-width: 426px) and (max-width: 1700px) {
     :root {
         --container-width: 70%;
         --container-height: 80%;

@@ -207,22 +207,12 @@ var Funciones = {
     RegresarIniciosesion: function () {
         confirmar.classList.add('d-none')
         textcontraseña.textContent = 'Contraseña'
-        Contraseña.placeholder = 'Ingrese su contraseña'
         Cambiar.classList.add('d-none')
         Regresar.classList.add('d-none')
         Ingresar.classList.remove('d-none')
         Nueva.classList.remove('d-none')
     },
 
-    ActualizarPlaceholder: function () {
-        if (window.matchMedia("(max-width: 425px)").matches) {
-            Usuario.placeholder = "Ingrese usuario";
-            Contraseña.placeholder = "Ingrese contraseña";
-        } else {
-            inputUsuario.placeholder = "Ingrese su código de usuario";
-            inputPassword.placeholder = "Ingrese su contraseña";
-        }
-    }
 
 };
 
@@ -290,8 +280,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     });
 
-    //Cambio de texto por redimencion
-    window.addEventListener("resize", Funciones.ActualizarPlaceholder());
 
 
 
@@ -301,7 +289,6 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         confirmar.classList.remove('d-none')
         textcontraseña.textContent = 'Nueva Contraseña'
-        Contraseña.placeholder = 'Ingrese su nueva contraseña'
         Cambiar.classList.remove('d-none')
         Regresar.classList.remove('d-none')
         Ingresar.classList.add('d-none')
